@@ -57,6 +57,40 @@ namespace MoneyBack
 			}
 		}
 		
+		public partial class Id
+		{
+			
+			// aapt resource value: 0x7f050004
+			public const int btnCalculate = 2131034116;
+			
+			// aapt resource value: 0x7f050001
+			public const int inputAmount = 2131034113;
+			
+			// aapt resource value: 0x7f050003
+			public const int inputNumberOfPeople = 2131034115;
+			
+			// aapt resource value: 0x7f050000
+			public const int txtAmount = 2131034112;
+			
+			// aapt resource value: 0x7f050002
+			public const int txtNumberOfPeople = 2131034114;
+			
+			// aapt resource value: 0x7f050006
+			public const int txtResultDecimal = 2131034118;
+			
+			// aapt resource value: 0x7f050005
+			public const int txtResultTitle = 2131034117;
+			
+			static Id()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Id()
+			{
+			}
+		}
+		
 		public partial class Layout
 		{
 			
