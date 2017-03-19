@@ -60,17 +60,32 @@ namespace MoneyBack
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f05000b
+			public const int btnAddPerson = 2131034123;
+			
 			// aapt resource value: 0x7f050004
 			public const int btnCalculate = 2131034116;
 			
 			// aapt resource value: 0x7f050001
 			public const int inputAmount = 2131034113;
 			
+			// aapt resource value: 0x7f05000a
+			public const int inputLastName = 2131034122;
+			
+			// aapt resource value: 0x7f050008
+			public const int inputName = 2131034120;
+			
 			// aapt resource value: 0x7f050003
 			public const int inputNumberOfPeople = 2131034115;
 			
 			// aapt resource value: 0x7f050000
 			public const int txtAmount = 2131034112;
+			
+			// aapt resource value: 0x7f050009
+			public const int txtLastNameTitle = 2131034121;
+			
+			// aapt resource value: 0x7f050007
+			public const int txtNameTitle = 2131034119;
 			
 			// aapt resource value: 0x7f050002
 			public const int txtNumberOfPeople = 2131034114;

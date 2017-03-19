@@ -45,4 +45,33 @@
         android:layout_height="wrap_content"
         android:id="@+id/txtResultDecimal"
         android:editable="false" />
+    <TextView
+        android:text="Name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtNameTitle" />
+    <EditText
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/inputName"
+        android:editable="false" />
+    <TextView
+        android:text="Last name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtLastNameTitle" />
+    <EditText
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/inputLastName"
+        android:editable="false" />
+    <Button
+        android:text="ADD PERSON"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnAddPerson" />
 </LinearLayout>
