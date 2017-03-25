@@ -4,8 +4,6 @@ using System.Threading.Tasks;
 using Android.App;
 using Android.Widget;
 using Android.OS;
-using Android.Provider;
-using Java.IO;
 using MoneyBack.Entities;
 using MoneyBack.Helpers;
 using MoneyBack.Orm;

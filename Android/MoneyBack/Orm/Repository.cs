@@ -19,9 +19,12 @@ namespace MoneyBack.Orm
     {
         private SQLiteAsyncConnection db = null;
 
-        public Repository()
+        public Repository() : this(new SQLiteAsyncConnection(Constants.DbFilePath)) { }
+
+
+        public Repository(SQLiteAsyncConnection db)
         {
-            db = new SQLiteAsyncConnection(Constants.DbFilePath);
+            this.db = db;
             db.CreateTableAsync<T>();
         }
 
