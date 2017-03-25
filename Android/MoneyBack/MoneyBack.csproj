@@ -54,7 +54,8 @@
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Orm\PeopleRepository.cs" />
+    <Compile Include="Orm\IRepository.cs" />
+    <Compile Include="Orm\Repository.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLite.cs" />
