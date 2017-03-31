@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="@string/titleName"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleName" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/inputName"
+        android:fadingEdge="none" />
+    <TextView
+        android:text="@string/titleLastName"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleLastName" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/inputLastName" />
+    <TextView
+        android:text="@string/titlePhoneNumber"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titlePhoneNumber" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/inputPhoneNumber"
+        android:inputType="phone" />
+    <Button
+        android:text="@string/btnSavePerson"
+        android:layout_width="match_parent"
+        android:layout_height="84.0dp"
+        android:id="@+id/btnSavePerson" />
+    <Button
+        android:text="@string/btnPeopleList"
+        android:layout_width="match_parent"
+        android:layout_height="121.5dp"
+        android:id="@+id/btnPeopleList" />
+</LinearLayout>

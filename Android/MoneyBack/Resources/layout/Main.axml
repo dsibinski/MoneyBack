@@ -6,72 +6,14 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <TextView
-        android:text="Enter amount you spent:"
+        android:text="@string/titleMenu"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtAmount" />
-    <EditText
-        android:inputType="numberDecimal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/inputAmount" />
-    <TextView
-        android:text="Enter number of people:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtNumberOfPeople" />
-    <EditText
-        android:inputType="number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/inputNumberOfPeople"
-        android:numeric="integer" />
+        android:id="@+id/titleMenu" />
     <Button
-        android:text="CALCULATE"
+        android:text="@string/btnPeople"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnCalculate" />
-    <TextView
-        android:text="Per person:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtResultTitle" />
-    <EditText
-        android:inputType="numberDecimal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtResultDecimal"
-        android:editable="false" />
-    <TextView
-        android:text="Name"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtNameTitle" />
-    <EditText
-        android:inputType="text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/inputName"
-        android:editable="false" />
-    <TextView
-        android:text="Last name"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtLastNameTitle" />
-    <EditText
-        android:inputType="text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/inputLastName"
-        android:editable="false" />
-    <Button
-        android:text="ADD PERSON"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnAddPerson" />
+        android:layout_height="78.5dp"
+        android:id="@+id/btnPeople" />
 </LinearLayout>

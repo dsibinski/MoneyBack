@@ -60,41 +60,35 @@ namespace MoneyBack
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f05000b
-			public const int btnAddPerson = 2131034123;
-			
-			// aapt resource value: 0x7f050004
-			public const int btnCalculate = 2131034116;
-			
 			// aapt resource value: 0x7f050001
-			public const int inputAmount = 2131034113;
-			
-			// aapt resource value: 0x7f05000a
-			public const int inputLastName = 2131034122;
-			
-			// aapt resource value: 0x7f050008
-			public const int inputName = 2131034120;
-			
-			// aapt resource value: 0x7f050003
-			public const int inputNumberOfPeople = 2131034115;
-			
-			// aapt resource value: 0x7f050000
-			public const int txtAmount = 2131034112;
+			public const int btnPeople = 2131034113;
 			
 			// aapt resource value: 0x7f050009
-			public const int txtLastNameTitle = 2131034121;
+			public const int btnPeopleList = 2131034121;
 			
-			// aapt resource value: 0x7f050007
-			public const int txtNameTitle = 2131034119;
-			
-			// aapt resource value: 0x7f050002
-			public const int txtNumberOfPeople = 2131034114;
-			
-			// aapt resource value: 0x7f050006
-			public const int txtResultDecimal = 2131034118;
+			// aapt resource value: 0x7f050008
+			public const int btnSavePerson = 2131034120;
 			
 			// aapt resource value: 0x7f050005
-			public const int txtResultTitle = 2131034117;
+			public const int inputLastName = 2131034117;
+			
+			// aapt resource value: 0x7f050003
+			public const int inputName = 2131034115;
+			
+			// aapt resource value: 0x7f050007
+			public const int inputPhoneNumber = 2131034119;
+			
+			// aapt resource value: 0x7f050004
+			public const int titleLastName = 2131034116;
+			
+			// aapt resource value: 0x7f050000
+			public const int titleMenu = 2131034112;
+			
+			// aapt resource value: 0x7f050002
+			public const int titleName = 2131034114;
+			
+			// aapt resource value: 0x7f050006
+			public const int titlePhoneNumber = 2131034118;
 			
 			static Id()
 			{
@@ -111,6 +105,9 @@ namespace MoneyBack
 			
 			// aapt resource value: 0x7f030000
 			public const int Main = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int People = 2130903041;
 			
 			static Layout()
 			{
@@ -130,6 +127,36 @@ namespace MoneyBack
 			
 			// aapt resource value: 0x7f040000
 			public const int Hello = 2130968576;
+			
+			// aapt resource value: 0x7f040002
+			public const int activityMoneyBackTitle = 2130968578;
+			
+			// aapt resource value: 0x7f040003
+			public const int activityPeopleListTitle = 2130968579;
+			
+			// aapt resource value: 0x7f040004
+			public const int activityPeopleTitle = 2130968580;
+			
+			// aapt resource value: 0x7f040006
+			public const int btnPeople = 2130968582;
+			
+			// aapt resource value: 0x7f04000b
+			public const int btnPeopleList = 2130968587;
+			
+			// aapt resource value: 0x7f04000a
+			public const int btnSavePerson = 2130968586;
+			
+			// aapt resource value: 0x7f040008
+			public const int titleLastName = 2130968584;
+			
+			// aapt resource value: 0x7f040005
+			public const int titleMenu = 2130968581;
+			
+			// aapt resource value: 0x7f040007
+			public const int titleName = 2130968583;
+			
+			// aapt resource value: 0x7f040009
+			public const int titlePhoneNumber = 2130968585;
 			
 			static String()
 			{

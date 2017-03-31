@@ -2,4 +2,14 @@
 <resources>
     <string name="Hello">Hello World, Click Me!</string>
     <string name="ApplicationName">MoneyBack</string>
+    <string name="activityMoneyBackTitle">MoneyBack</string>
+    <string name="activityPeopleListTitle">People List</string>
+    <string name="activityPeopleTitle">People</string>
+    <string name="titleMenu">Menu:</string>
+    <string name="btnPeople">People management</string>
+    <string name="titleName">Name</string>
+    <string name="titleLastName">Last name</string>
+    <string name="titlePhoneNumber">Phone number</string>
+    <string name="btnSavePerson">Save person</string>
+    <string name="btnPeopleList">List of people</string>
 </resources>
