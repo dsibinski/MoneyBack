@@ -128,35 +128,26 @@ namespace MoneyBack
 			// aapt resource value: 0x7f040000
 			public const int Hello = 2130968576;
 			
-			// aapt resource value: 0x7f040002
-			public const int activityMoneyBackTitle = 2130968578;
-			
 			// aapt resource value: 0x7f040003
-			public const int activityPeopleListTitle = 2130968579;
-			
-			// aapt resource value: 0x7f040004
-			public const int activityPeopleTitle = 2130968580;
-			
-			// aapt resource value: 0x7f040006
-			public const int btnPeople = 2130968582;
-			
-			// aapt resource value: 0x7f04000b
-			public const int btnPeopleList = 2130968587;
-			
-			// aapt resource value: 0x7f04000a
-			public const int btnSavePerson = 2130968586;
+			public const int btnPeople = 2130968579;
 			
 			// aapt resource value: 0x7f040008
-			public const int titleLastName = 2130968584;
-			
-			// aapt resource value: 0x7f040005
-			public const int titleMenu = 2130968581;
+			public const int btnPeopleList = 2130968584;
 			
 			// aapt resource value: 0x7f040007
-			public const int titleName = 2130968583;
+			public const int btnSavePerson = 2130968583;
 			
-			// aapt resource value: 0x7f040009
-			public const int titlePhoneNumber = 2130968585;
+			// aapt resource value: 0x7f040005
+			public const int titleLastName = 2130968581;
+			
+			// aapt resource value: 0x7f040002
+			public const int titleMenu = 2130968578;
+			
+			// aapt resource value: 0x7f040004
+			public const int titleName = 2130968580;
+			
+			// aapt resource value: 0x7f040006
+			public const int titlePhoneNumber = 2130968582;
 			
 			static String()
 			{

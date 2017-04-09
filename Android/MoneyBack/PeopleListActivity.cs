@@ -14,7 +14,7 @@ using MoneyBack.Orm;
 
 namespace MoneyBack
 {
-    [Activity(Label = "@string/activityPeopleListTitle")]
+    [Activity(Label = "People List")]
     public class PeopleListActivity : ListActivity
     {
         private List<Person> _peopleList;

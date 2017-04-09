@@ -14,7 +14,7 @@ using MoneyBack.Orm;
 
 namespace MoneyBack
 {
-    [Activity(Label = "@string/activityPeopleTitle")]
+    [Activity(Label = "People")]
     public class PeopleActivity : Activity
     {
         private Button _btnSavePerson;

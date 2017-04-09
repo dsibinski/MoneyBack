@@ -12,7 +12,7 @@ using SQLite;
 
 namespace MoneyBack
 {
-    [Activity(Label = "@string/activityMoneyBackTitle", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Money Back", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         private Button _btnPeople;

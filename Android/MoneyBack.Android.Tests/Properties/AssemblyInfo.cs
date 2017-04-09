@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2015 Charlie Poole
+﻿// Copyright (c) 2017 Charlie Poole
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -27,8 +27,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("NUnit Test Runner for Android")]
 
 [assembly: AssemblyCompany("NUnit Software")]
-[assembly: AssemblyProduct("NUnit 3.0")]
-[assembly: AssemblyCopyright("Copyright (C) 2015 Charlie Poole")]
+[assembly: AssemblyProduct("NUnit 3")]
+[assembly: AssemblyCopyright("Copyright (C) 2017 Charlie Poole")]
 [assembly: AssemblyTrademark("NUnit is a trademark of NUnit Software")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyConfiguration("")]

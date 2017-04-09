@@ -31,7 +31,7 @@ namespace MoneyBack.Android.Tests
 
             // when
             var numRows = repo.Insert(person).Result;
-            
+
             // then
             Assert.AreEqual(1, numRows);
         }
