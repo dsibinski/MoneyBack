@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ApplicationName">MoneyBack</string>
+    <string name="titleMenu">Menu:</string>
+    <string name="btnPeople">Zarządzaj osobami</string>
+    <string name="titleName">Imię</string>
+    <string name="titleLastName">Nazwisko</string>
+    <string name="titlePhoneNumber">Numer telefonu</string>
+    <string name="btnSavePerson">Zapisz osobę</string>
+    <string name="btnPeopleList">Lista osób</string>
+    <string name="peopleListTitle">Lista osób</string>
+</resources>

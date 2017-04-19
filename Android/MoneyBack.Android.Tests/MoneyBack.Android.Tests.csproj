@@ -105,15 +105,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MainActivity.cs.txt" />
+    <AndroidResource Include="Resources\values\Strings.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MoneyBack\MoneyBack.csproj">
       <Project>{00e48e0c-05ef-4f59-a5e0-1ab6f38ba326}</Project>
       <Name>MoneyBack</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

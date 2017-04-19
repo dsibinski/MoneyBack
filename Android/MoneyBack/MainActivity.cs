@@ -12,7 +12,7 @@ using SQLite;
 
 namespace MoneyBack
 {
-    [Activity(Label = "Money Back", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "@string/ApplicationName", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         private Button _btnPeople;
@@ -21,7 +21,6 @@ namespace MoneyBack
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
