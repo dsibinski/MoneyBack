@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Globalization;
-using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Widget;
 using Android.OS;
-using MoneyBack.Entities;
-using MoneyBack.Helpers;
-using MoneyBack.Orm;
-using SQLite;
 
 namespace MoneyBack
 {
