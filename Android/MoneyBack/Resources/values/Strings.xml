@@ -9,4 +9,5 @@
     <string name="btnSavePerson">Save person</string>
     <string name="btnPeopleList">List of people</string>
     <string name="peopleListTitle">List of people</string>
+    <string name="menuAddTitle">Add</string>
 </resources>

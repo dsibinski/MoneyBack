@@ -3,6 +3,7 @@ using Android.App;
 using Android.Content;
 using Android.Widget;
 using Android.OS;
+using Android.Views;
 using ActionBar = Android.App.ActionBar;
 
 namespace MoneyBack
@@ -20,6 +21,23 @@ namespace MoneyBack
 
         }
 
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.ActionBarMenu, menu);
+            return base.OnPrepareOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            if (item.ItemId == Resource.Id.menuAdd)
+            {
+                OpenAddingNewPerson();
+                return true;
+            }
+
+            return base.OnOptionsItemSelected(item);
+        }
+
         private void InitializeTabs()
         {
             this.ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
@@ -33,9 +51,7 @@ namespace MoneyBack
         {
             var tab = this.ActionBar.NewTab();
             tab.SetText(tabText);
-           // tab.SetIcon(Resource.Drawable.ic_tab_white);
 
-            // must set event handler before adding tab
             tab.TabSelected += delegate (object sender, ActionBar.TabEventArgs e)
             {
                 var fragment = this.FragmentManager.FindFragmentById(Resource.Id.tabFragmentsContainer);
@@ -58,6 +74,7 @@ namespace MoneyBack
         protected override void OnResume()
         {
             base.OnResume();
+
         }
 
         protected override void OnPause()
@@ -76,7 +93,7 @@ namespace MoneyBack
         }
 
 
-        private void _btnPeople_Click(object sender, EventArgs e)
+        private void OpenAddingNewPerson()
         {
             var intent = new Intent(this, typeof(PeopleActivity));
             StartActivity(intent);

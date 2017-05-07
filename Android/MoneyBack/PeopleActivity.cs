@@ -65,6 +65,8 @@ namespace MoneyBack
             else
                 Toast.MakeText(this, $"Person saved, details: {person}", ToastLength.Long).Show();
 
+            this.Finish();
+
         }
 
         private async Task<int> InsertPerson(Person person)

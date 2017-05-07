@@ -22,13 +22,17 @@ namespace MoneyBack
         {
             base.OnActivityCreated(savedInstanceState);
 
-            InitializePeopleList(savedInstanceState);
+            InitializePeopleList();
         }
 
-        protected async void InitializePeopleList(Bundle savedInstanceState)
+        public override void OnStart()
         {
-            base.OnCreate(savedInstanceState);
+            base.OnStart();
+            InitializePeopleList();
+        }
 
+        protected async void InitializePeopleList()
+        {
             _peopleList = await GetPeopleAsync();
 
             this.ListAdapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleExpandableListItem1, _peopleList.ConvertAll(p => p.ToString()));
