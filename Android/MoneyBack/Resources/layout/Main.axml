@@ -5,15 +5,10 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px">
-    <TextView
-        android:text="@string/titleMenu"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+    <FrameLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/titleMenu" />
-    <Button
-        android:text="@string/btnPeople"
-        android:layout_width="match_parent"
-        android:layout_height="78.5dp"
-        android:id="@+id/btnPeople" />
+        android:layout_height="match_parent"
+        android:id="@+id/tabFragmentsContainer" />
 </LinearLayout>

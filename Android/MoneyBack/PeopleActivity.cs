@@ -13,7 +13,6 @@ namespace MoneyBack
     public class PeopleActivity : Activity
     {
         private Button _btnSavePerson;
-        private Button _btnPeopleList;
 
         private EditText _inputName;
         private EditText _inputLastName;
@@ -43,14 +42,7 @@ namespace MoneyBack
         private void InitializeUserControlsEvents()
         {
             _btnSavePerson.Click += _btnSavePerson_Click;
-            _btnPeopleList.Click += _btnPeopleList_Click;
             
-        }
-
-        private void _btnPeopleList_Click(object sender, EventArgs e)
-        {
-            var intent = new Intent(this, typeof(PeopleListActivity));
-            StartActivity(intent);
         }
 
         private async void _btnSavePerson_Click(object sender, EventArgs e)
@@ -91,7 +83,6 @@ namespace MoneyBack
         private void DetatchUserControlsEvents()
         {
             _btnSavePerson.Click -= _btnSavePerson_Click;
-            _btnPeopleList.Click -= _btnPeopleList_Click;
         }
 
         protected override void OnStop()
@@ -109,7 +100,6 @@ namespace MoneyBack
         private void InitializeUserControls()
         {
             _btnSavePerson = this.FindViewById<Button>(Resource.Id.btnSavePerson);
-            _btnPeopleList = this.FindViewById<Button>(Resource.Id.btnPeopleList);
 
             _inputName = this.FindViewById<EditText>(Resource.Id.inputName);
             _inputLastName = this.FindViewById<EditText>(Resource.Id.inputLastName);

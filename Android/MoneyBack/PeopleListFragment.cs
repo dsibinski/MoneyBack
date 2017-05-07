@@ -1,29 +1,37 @@
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Runtime;
+using Android.Views;
 using Android.Widget;
 using MoneyBack.Entities;
 using MoneyBack.Orm;
 
 namespace MoneyBack
 {
-    [Activity(Label = "@string/peopleListTitle")]
-    public class PeopleListActivity : ListActivity
+    public class PeopleListFragment : ListFragment
     {
         private List<Person> _peopleList;
 
-        protected override async void OnCreate(Bundle savedInstanceState)
+        public override void OnActivityCreated(Bundle savedInstanceState)
+        {
+            base.OnActivityCreated(savedInstanceState);
+
+            InitializePeopleList(savedInstanceState);
+        }
+
+        protected async void InitializePeopleList(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            var repo = new Repository<Person>();
-
             _peopleList = await GetPeopleAsync();
 
-            this.ListAdapter = new ArrayAdapter<Person>(this, Android.Resource.Layout.SimpleListItem1, _peopleList);
+            this.ListAdapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleExpandableListItem1, _peopleList.ConvertAll(p => p.ToString()));
 
             InitializeUserControlsEvents();
         }
@@ -48,7 +56,7 @@ namespace MoneyBack
             var person = _peopleList[e.Position];
 
             var uri = Android.Net.Uri.Parse("tel:" + person.PhoneNumber);
-            
+
             var intent = new Intent(Intent.ActionDial, uri);
 
             StartActivity(intent);
