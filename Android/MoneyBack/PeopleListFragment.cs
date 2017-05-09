@@ -35,7 +35,7 @@ namespace MoneyBack
         {
             _peopleList = await GetPeopleAsync();
 
-            this.ListAdapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleExpandableListItem1, _peopleList.ConvertAll(p => p.ToString()));
+            this.ListAdapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleListItem1, _peopleList.ConvertAll(p => p.ToString()));
 
             InitializeUserControlsEvents();
         }

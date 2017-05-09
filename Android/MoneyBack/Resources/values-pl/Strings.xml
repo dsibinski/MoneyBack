@@ -10,4 +10,6 @@
     <string name="btnPeopleList">Lista osób</string>
     <string name="peopleListTitle">Lista osób</string>
     <string name="menuAddTitle">Dodaj</string>
+    <string name="peopleTabTitle">Osoby</string>
+    <string name="titleEmail">Email</string>
 </resources>

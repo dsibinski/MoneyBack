@@ -18,7 +18,7 @@ namespace MoneyBack.Entities
 
         public override string ToString()
         {
-            return $"[Person: Id={Id}, Name={Name}, LastName={LastName}, PhoneNumber={PhoneNumber}, Email={Email}]";
+            return $"Name: {Name}\nLast Name: {LastName}\nPhone Number: {PhoneNumber}\nEmail: {Email}";
         }
     }
 }

@@ -4,6 +4,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
+using Java.Security;
 using MoneyBack.Entities;
 using MoneyBack.Orm;
 
@@ -17,6 +18,7 @@ namespace MoneyBack
         private EditText _inputName;
         private EditText _inputLastName;
         private EditText _inputPhoneNumber;
+        private EditText _inputEmail;
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -47,15 +49,30 @@ namespace MoneyBack
 
         private async void _btnSavePerson_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ValidateMandatoryFields();
+            }
+            catch (Exception ex)
+            {
+                Toast.MakeText(this, ex.Message, ToastLength.Long).Show();
+                return;
+            }
+            
+
             var name = _inputName.Text;
             var lastName = _inputLastName.Text;
             var phoneNumber = _inputPhoneNumber.Text;
+            var email = _inputEmail.Text;
+
+            
 
             var person = new Person
             {
                 Name = name,
                 LastName = lastName,
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                Email = email
             };
 
             var rows = await InsertPerson(person);
@@ -67,6 +84,15 @@ namespace MoneyBack
 
             this.Finish();
 
+        }
+
+        private void ValidateMandatoryFields()
+        {
+            if (String.IsNullOrEmpty(_inputName.Text))
+                throw new ArgumentNullException($"Name", "Mandatory field cannot be empty!");
+
+            if (String.IsNullOrEmpty(_inputEmail.Text))
+                throw new ArgumentNullException($"Email", "Mandatory field cannot be empty!");
         }
 
         private async Task<int> InsertPerson(Person person)
@@ -106,7 +132,8 @@ namespace MoneyBack
             _inputName = this.FindViewById<EditText>(Resource.Id.inputName);
             _inputLastName = this.FindViewById<EditText>(Resource.Id.inputLastName);
             _inputPhoneNumber = this.FindViewById<EditText>(Resource.Id.inputPhoneNumber);
-            
+            _inputEmail = this.FindViewById<EditText>(Resource.Id.inputEmail);
+
         }
     }
 }

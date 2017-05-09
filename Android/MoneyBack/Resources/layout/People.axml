@@ -35,6 +35,17 @@
         android:layout_height="wrap_content"
         android:id="@+id/inputPhoneNumber"
         android:inputType="phone" />
+    <TextView
+        android:text="@string/titleEmail"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleEmail" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/inputEmail"
+        android:inputType="textEmailAddress" />
     <Button
         android:text="@string/btnSavePerson"
         android:layout_width="match_parent"

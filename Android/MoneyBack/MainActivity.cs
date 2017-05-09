@@ -41,10 +41,8 @@ namespace MoneyBack
         private void InitializeTabs()
         {
             this.ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
-            var tab = this.ActionBar.NewTab();
-            tab.SetText("People");
 
-            AddTab("People", new PeopleListFragment());
+            AddTab(GetString(Resource.String.peopleTabTitle), new PeopleListFragment());
         }
 
         void AddTab(string tabText, Fragment view)
