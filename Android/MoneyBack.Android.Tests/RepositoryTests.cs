@@ -1,19 +1,24 @@
 ﻿using NUnit.Framework;
 using MoneyBack.Entities;
+using MoneyBack.Helpers;
 using MoneyBack.Orm;
-using SQLite;
+using SQLite.Net;
+using SQLite.Net.Async;
+using SQLite.Net.Interop;
+using SQLiteNetExtensionsAsync.Extensions;
+
 
 namespace MoneyBack.Android.Tests
 {
     [TestFixture]
     public class RepositoryTests
     {
-        public SQLiteAsyncConnection InMemorySqliteConnection;
+        public SQLiteAsyncConnection TestSqliteConnection;
 
         [OneTimeSetUp]
         public void Init()
         {
-            InMemorySqliteConnection = new SQLiteAsyncConnection(":memory:");
+           TestSqliteConnection = DatabaseHelper.GetAndroidDbConnection(Constants.DbFilePath);
         }
 
 
@@ -27,7 +32,7 @@ namespace MoneyBack.Android.Tests
                 LastName = "B"
             };
 
-            var repo = new Repository<Person>(InMemorySqliteConnection);
+            var repo = new Repository<Person>(TestSqliteConnection);
 
             // when
             var numRows = repo.Insert(person).Result;
@@ -52,12 +57,12 @@ namespace MoneyBack.Android.Tests
                 LastName = "B"
             };
 
-            var repo = new Repository<Person>(InMemorySqliteConnection);
+            var repo = new Repository<Person>(TestSqliteConnection);
 
             // when
             var n1 = repo.Insert(person1).Result; // getting Result in order to force Task's completion before continuing
             var n2 = repo.Insert(person2).Result;
-
+            var people = repo.GetAll().Result;
             // then
             Assert.Greater(person1.Id, 0);
             Assert.AreEqual(person2.Id, person1.Id + 1);

@@ -30,6 +30,8 @@ namespace MoneyBack.Android.Tests
 			global::Nunit.Runner.Resource.String.Hello = global::MoneyBack.Android.Tests.Resource.String.Hello;
 			global::PCLStorage.Resource.String.ApplicationName = global::MoneyBack.Android.Tests.Resource.String.ApplicationName;
 			global::PCLStorage.Resource.String.Hello = global::MoneyBack.Android.Tests.Resource.String.Hello;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::MoneyBack.Android.Tests.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::MoneyBack.Android.Tests.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Resource.String.ApplicationName = global::MoneyBack.Android.Tests.Resource.String.ApplicationName;
 			global::Xamarin.Forms.Platform.Resource.String.Hello = global::MoneyBack.Android.Tests.Resource.String.Hello;
 		}

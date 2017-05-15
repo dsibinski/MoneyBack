@@ -9,7 +9,12 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using SQLite;
+using SQLite.Net;
+using SQLite.Net.Async;
+using SQLite.Net.Attributes;
+using SQLite.Net.Interop;
+using SQLiteNetExtensions.Attributes;
+using SQLiteNetExtensionsAsync.Extensions;
 
 namespace MoneyBack.Entities
 {
@@ -22,6 +27,9 @@ namespace MoneyBack.Entities
         public string Name { get; set; }
         public DateTime Date { get; set; }
         public string Place { get; set; }
+
+        [ManyToMany(typeof(PersonEvent))]
+        public List<Person> Participants { get; set; }
 
         public override string ToString()
         {

@@ -1,4 +1,10 @@
-using SQLite;
+using System.Collections.Generic;
+using SQLite.Net;
+using SQLite.Net.Async;
+using SQLite.Net.Attributes;
+using SQLite.Net.Interop;
+using SQLiteNetExtensions.Attributes;
+using SQLiteNetExtensionsAsync.Extensions;
 
 namespace MoneyBack.Entities
 {
@@ -15,6 +21,9 @@ namespace MoneyBack.Entities
         public string PhoneNumber { get; set; }
 
         public string Email { get; set; }
+
+        [ManyToMany(typeof(PersonEvent))]
+        public List<Event> Events { get; set; }
 
         public override string ToString()
         {

@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using MoneyBack.Helpers;
-using SQLite;
+using SQLite.Net;
+using SQLite.Net.Async;
+using SQLite.Net.Interop;
+using SQLiteNetExtensionsAsync.Extensions;
 
 namespace MoneyBack.Orm
 {
@@ -11,7 +14,7 @@ namespace MoneyBack.Orm
     {
         private SQLiteAsyncConnection db = null;
 
-        public Repository() : this(new SQLiteAsyncConnection(Constants.DbFilePath)) { }
+        public Repository() : this (DatabaseHelper.GetAndroidDbConnection(Constants.DbFilePath)) { }
 
 
         public Repository(SQLiteAsyncConnection db)
