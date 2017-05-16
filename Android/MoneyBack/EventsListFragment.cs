@@ -18,6 +18,8 @@ namespace MoneyBack
     {
         private List<Event> _eventsList;
 
+        private readonly DatabaseContext _dbContext = new DatabaseContext();
+
         public override void OnActivityCreated(Bundle savedInstanceState)
         {
             base.OnActivityCreated(savedInstanceState);
@@ -43,11 +45,10 @@ namespace MoneyBack
 
         private async Task<List<Event>> GetEventsAsync()
         {
-            var repo = new Repository<Event>();
 
-            var people = await repo.GetAll();
+            var events = await _dbContext.Events.GetAll();
 
-            return people.ToList();
+            return events.ToList();
         }
 
 

@@ -12,7 +12,8 @@ namespace MoneyBack.Orm
         Task<IList<T>> Get(Expression<Func<T, bool>> filter);
 
         Task<int> Insert(T entity);
-        Task<int> Update(T entity);
+        Task InsertWithChildren(T entity);
+        Task Update(T entity);
         Task<int> Delete(T entity);
 
     }

@@ -17,6 +17,7 @@ namespace MoneyBack
     public class PeopleListFragment : ListFragment
     {
         private List<Person> _peopleList;
+        private readonly DatabaseContext _dbContext = new DatabaseContext();
 
         public override void OnActivityCreated(Bundle savedInstanceState)
         {
@@ -43,9 +44,7 @@ namespace MoneyBack
 
         private async Task<List<Person>> GetPeopleAsync()
         {
-            var repo = new Repository<Person>();
-
-            var people = await repo.GetAll();
+            var people = await _dbContext.People.GetAll();
 
             return people.ToList();
         }

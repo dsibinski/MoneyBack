@@ -100,7 +100,7 @@
     <Compile Include="EventsListFragment.cs" />
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Orm\DatabaseHelper.cs" />
+    <Compile Include="Orm\DatabaseContext.cs" />
     <Compile Include="Orm\IRepository.cs" />
     <Compile Include="Orm\Repository.cs" />
     <Compile Include="PeopleActivity.cs" />

@@ -20,6 +20,8 @@ namespace MoneyBack
         private EditText _inputPhoneNumber;
         private EditText _inputEmail;
 
+        private readonly DatabaseContext _dbContext = new DatabaseContext();
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -75,9 +77,9 @@ namespace MoneyBack
                 Email = email
             };
 
-            var rows = await InsertPerson(person);
+            await InsertPerson(person);
 
-            if (rows <= 0)
+            if (person.Id == 0)
                 Toast.MakeText(this, $"Person: Name={name}, LastName={lastName} wasn't properly saved!", ToastLength.Long).Show();
             else
                 Toast.MakeText(this, $"Person saved, details: {person}", ToastLength.Long).Show();
@@ -95,11 +97,9 @@ namespace MoneyBack
                 throw new ArgumentNullException($"Email", "Mandatory field cannot be empty!");
         }
 
-        private async Task<int> InsertPerson(Person person)
+        private async Task InsertPerson(Person person)
         {
-            var repo = new Repository<Person>();
-            var rowsNumber = await repo.Insert(person);
-            return rowsNumber;
+            await _dbContext.People.Insert(person);
         }
 
         protected override void OnPause()

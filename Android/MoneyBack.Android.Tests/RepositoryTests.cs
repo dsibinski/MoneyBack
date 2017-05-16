@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using System;
+using Java.IO;
+using NUnit.Framework;
 using MoneyBack.Entities;
 using MoneyBack.Helpers;
 using MoneyBack.Orm;
@@ -13,13 +15,20 @@ namespace MoneyBack.Android.Tests
     [TestFixture]
     public class RepositoryTests
     {
-        public SQLiteAsyncConnection TestSqliteConnection;
+        private readonly DatabaseContext _dbContext = new DatabaseContext();
 
-        [OneTimeSetUp]
-        public void Init()
-        {
-           TestSqliteConnection = DatabaseHelper.GetAndroidDbConnection(Constants.DbFilePath);
-        }
+        /* [OneTimeSetUp]
+         public void Init()
+         {
+             var file = new File(Constants.DbFilePath);
+             if(file.Exists())
+             {
+                 if (!file.Delete())
+                 throw new ArgumentException("Database file couldn't be deleted before tests initialization!");
+             }
+
+            TestSqliteConnection = DatabaseContext.GetAndroidDbConnection(Constants.DbFilePath);
+         }*/
 
 
         [Test]
@@ -32,13 +41,14 @@ namespace MoneyBack.Android.Tests
                 LastName = "B"
             };
 
-            var repo = new Repository<Person>(TestSqliteConnection);
+           // var repo = new Repository<Person>(TestSqliteConnection);
 
             // when
-            var numRows = repo.Insert(person).Result;
+            var rows = _dbContext.People.Insert(person).Result;
 
             // then
-            Assert.AreEqual(1, numRows);
+
+            Assert.AreEqual(1, rows);
         }
 
         [Test]
@@ -57,12 +67,13 @@ namespace MoneyBack.Android.Tests
                 LastName = "B"
             };
 
-            var repo = new Repository<Person>(TestSqliteConnection);
+           // var repo2 = new Repository<Event>(TestSqliteConnection);
+            //var repo3 = new Repository<PersonEvent>(TestSqliteConnection);
 
             // when
-            var n1 = repo.Insert(person1).Result; // getting Result in order to force Task's completion before continuing
-            var n2 = repo.Insert(person2).Result;
-            var people = repo.GetAll().Result;
+            var n1 = _dbContext.People.Insert(person1).Result; // getting Result in order to force Task's completion before continuing
+            var n2 = _dbContext.People.Insert(person2).Result;
+            var people = _dbContext.People.GetAll().Result;
             // then
             Assert.Greater(person1.Id, 0);
             Assert.AreEqual(person2.Id, person1.Id + 1);
