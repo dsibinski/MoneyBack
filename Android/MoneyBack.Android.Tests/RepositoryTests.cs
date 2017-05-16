@@ -15,21 +15,7 @@ namespace MoneyBack.Android.Tests
     [TestFixture]
     public class RepositoryTests
     {
-        private readonly DatabaseContext _dbContext = new DatabaseContext();
-
-        /* [OneTimeSetUp]
-         public void Init()
-         {
-             var file = new File(Constants.DbFilePath);
-             if(file.Exists())
-             {
-                 if (!file.Delete())
-                 throw new ArgumentException("Database file couldn't be deleted before tests initialization!");
-             }
-
-            TestSqliteConnection = DatabaseContext.GetAndroidDbConnection(Constants.DbFilePath);
-         }*/
-
+        private readonly DatabaseContext _dbContext = new DatabaseContext(true);
 
         [Test]
         public void one_new_person_inserted_adds_one_new_row()
@@ -41,7 +27,6 @@ namespace MoneyBack.Android.Tests
                 LastName = "B"
             };
 
-           // var repo = new Repository<Person>(TestSqliteConnection);
 
             // when
             var rows = _dbContext.People.Insert(person).Result;
@@ -67,8 +52,6 @@ namespace MoneyBack.Android.Tests
                 LastName = "B"
             };
 
-           // var repo2 = new Repository<Event>(TestSqliteConnection);
-            //var repo3 = new Repository<PersonEvent>(TestSqliteConnection);
 
             // when
             var n1 = _dbContext.People.Insert(person1).Result; // getting Result in order to force Task's completion before continuing

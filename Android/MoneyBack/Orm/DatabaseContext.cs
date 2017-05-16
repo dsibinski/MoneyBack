@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Java.IO;
 using MoneyBack.Entities;
 using MoneyBack.Helpers;
 using SQLite.Net;
@@ -22,14 +23,27 @@ namespace MoneyBack.Orm
         public Repository<Person> People { get; set; }
         public Repository<PersonEvent> PersonEvents { get; set; }
 
-        public DatabaseContext()
+        /// <summary>
+        /// Creates new DatabaseContext.
+        /// </summary>
+        /// <param name="removeDbFileFirst">If set, removes database file before initializing the DB. Can be used for tests purposes.</param>
+        public DatabaseContext(bool removeDbFileFirst = false)
         {
+            if (removeDbFileFirst)
+                JavaIoHelper.RemoveJavaFileIfExists(Constants.DbFilePath);
+
             var sqliteConnection = GetAndroidDbConnection(Constants.DbFilePath);
 
+            InitializeTables(sqliteConnection);
+        }
+
+        private void InitializeTables(SQLiteAsyncConnection sqliteConnection)
+        {
             Events = new Repository<Event>(sqliteConnection);
             People = new Repository<Person>(sqliteConnection);
             PersonEvents = new Repository<PersonEvent>(sqliteConnection);
         }
+
 
         private SQLiteAsyncConnection GetAndroidDbConnection(string dbFilePath)
         {

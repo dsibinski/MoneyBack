@@ -99,6 +99,7 @@
     <Compile Include="Entities\PersonEvent.cs" />
     <Compile Include="EventsListFragment.cs" />
     <Compile Include="Helpers\Constants.cs" />
+    <Compile Include="Helpers\JavaIoHelper.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Orm\DatabaseContext.cs" />
     <Compile Include="Orm\IRepository.cs" />
