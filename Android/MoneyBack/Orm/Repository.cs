@@ -6,58 +6,70 @@ using System.Threading.Tasks;
 using MoneyBack.Helpers;
 using SQLite.Net;
 using SQLite.Net.Async;
-using SQLite.Net.Interop;
-using SQLiteNetExtensions.Attributes;
-using SQLiteNetExtensionsAsync.Extensions;
+using SQLite.Net.Platform.XamarinAndroid;
+using SQLiteNetExtensions.Extensions;
 
 namespace MoneyBack.Orm
 {
     public class Repository<T> : IRepository<T> where T : class, new()
     {
-        private SQLiteAsyncConnection dbConnection = null;
+        private SQLiteConnection dbConnection = null;
 
-        public Repository(SQLiteAsyncConnection dbConnection)
+        public Repository(SQLiteConnection dbConnection)
         {
             this.dbConnection = dbConnection;
-            dbConnection.CreateTableAsync<T>();
+            dbConnection.CreateTable<T>();
         }
 
 
-
-        public async Task<IList<T>> GetAll()
+        public IList<T> GetAll()
         {
-            return await dbConnection.GetAllWithChildrenAsync<T>();
+            return dbConnection.Table<T>().ToList();
+        }
+
+        public IList<T> GetAllWithChildren()
+        {
+            return dbConnection.GetAllWithChildren<T>();
         }
 
 
-        public async Task<T> Get(int id)
+        public T Get(int id)
         {
-            return await dbConnection.GetWithChildrenAsync<T>(id);
+            return dbConnection.Get<T>(id);
         }
 
-        public async Task<IList<T>> Get(Expression<Func<T, bool>> filter)
+        public T GetWithChildren(int id)
         {
-            return await dbConnection.GetAllWithChildrenAsync(filter);
+            return dbConnection.GetWithChildren<T>(id);
         }
 
-        public async Task<int> Insert(T entity)
+        public IList<T> Get(Expression<Func<T, bool>> filter)
         {
-            return await dbConnection.InsertAsync(entity);
+            return dbConnection.Table<T>().Where(filter).ToList();
         }
 
-        public async Task InsertWithChildren(T entity)
+        public int Insert(T entity)
         {
-            await dbConnection.InsertWithChildrenAsync(entity);
+            return dbConnection.Insert(entity);
         }
 
-        public async Task Update(T entity)
+        public void InsertWithChildren(T entity)
         {
-            await dbConnection.UpdateWithChildrenAsync(entity);
+            dbConnection.InsertWithChildren(entity);
         }
 
-        public async Task<int> Delete(T entity)
+        public void Update(T entity)
         {
-            return await dbConnection.DeleteAsync(entity);
+            dbConnection.Update(entity);
+        }
+
+        public void UpdateWithChildren(T entity)
+        {
+            dbConnection.UpdateWithChildren(entity);
+        }
+        public int Delete(T entity)
+        {
+            return dbConnection.Delete<T>(entity);
         }
 
         

@@ -1,13 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using Java.IO;
 using NUnit.Framework;
 using MoneyBack.Entities;
 using MoneyBack.Helpers;
 using MoneyBack.Orm;
 using SQLite.Net;
-using SQLite.Net.Async;
 using SQLite.Net.Interop;
-using SQLiteNetExtensionsAsync.Extensions;
 
 
 namespace MoneyBack.Android.Tests
@@ -29,7 +28,7 @@ namespace MoneyBack.Android.Tests
 
 
             // when
-            var rows = _dbContext.People.Insert(person).Result;
+            var rows = _dbContext.People.Insert(person);
 
             // then
 
@@ -54,12 +53,46 @@ namespace MoneyBack.Android.Tests
 
 
             // when
-            var n1 = _dbContext.People.Insert(person1).Result; // getting Result in order to force Task's completion before continuing
-            var n2 = _dbContext.People.Insert(person2).Result;
-            var people = _dbContext.People.GetAll().Result;
+            var n1 = _dbContext.People.Insert(person1); // getting Result in order to force Task's completion before continuing
+            var n2 = _dbContext.People.Insert(person2);
+            var people = _dbContext.People.GetAll();
             // then
             Assert.Greater(person1.Id, 0);
             Assert.AreEqual(person2.Id, person1.Id + 1);
+        }
+
+        [Test]
+        public void person_is_properly_saved_with_event()
+        {
+            var event1 = new Event
+            {
+                Name = "Volleyball",
+                Date = new DateTime(2017, 06, 18),
+                Place = "Sports hall"
+            };
+
+            var person1 = new Person
+            {
+                Name = "A",
+                LastName = "B",
+                PhoneNumber = "123456789"
+            };
+
+            
+            // when
+            var v1 = _dbContext.People.Insert(person1);
+            var v2 = _dbContext.Events.Insert(event1);
+
+            person1.Events = new List<Event> {event1};
+            _dbContext.People.UpdateWithChildren(person1);
+            
+            var personStored = _dbContext.People.GetWithChildren(person1.Id);
+            var eventStored = _dbContext.Events.GetWithChildren(personStored.Events[0].Id);
+
+            // then
+            Assert.Greater(personStored.Id, 1);
+            Assert.AreEqual(1, personStored.Events.Count);
+            Assert.AreEqual(1, eventStored.Participants.Count);
         }
     }
 }

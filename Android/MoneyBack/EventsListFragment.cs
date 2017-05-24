@@ -46,7 +46,7 @@ namespace MoneyBack
         private async Task<List<Event>> GetEventsAsync()
         {
 
-            var events = await _dbContext.Events.GetAll();
+            var events = _dbContext.Events.GetAll();
 
             return events.ToList();
         }

@@ -1,12 +1,19 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
+using Java.IO;
 using Java.Security;
 using MoneyBack.Entities;
+using MoneyBack.Helpers;
 using MoneyBack.Orm;
+using SQLite.Net;
+using SQLite.Net.Async;
+using SQLite.Net.Platform.XamarinAndroid;
+using SQLiteNetExtensions.Extensions;
 
 namespace MoneyBack
 {
@@ -77,7 +84,7 @@ namespace MoneyBack
                 Email = email
             };
 
-            await InsertPerson(person);
+            InsertPerson(person);
 
             if (person.Id == 0)
                 Toast.MakeText(this, $"Person: Name={name}, LastName={lastName} wasn't properly saved!", ToastLength.Long).Show();
@@ -97,9 +104,9 @@ namespace MoneyBack
                 throw new ArgumentNullException($"Email", "Mandatory field cannot be empty!");
         }
 
-        private async Task InsertPerson(Person person)
+        private void InsertPerson(Person person)
         {
-            await _dbContext.People.Insert(person);
+            _dbContext.People.Insert(person);
         }
 
         protected override void OnPause()

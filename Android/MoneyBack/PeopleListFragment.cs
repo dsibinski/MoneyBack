@@ -44,7 +44,7 @@ namespace MoneyBack
 
         private async Task<List<Person>> GetPeopleAsync()
         {
-            var people = await _dbContext.People.GetAll();
+            var people = _dbContext.People.GetAll();
 
             return people.ToList();
         }

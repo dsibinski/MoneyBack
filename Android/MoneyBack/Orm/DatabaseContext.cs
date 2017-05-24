@@ -37,7 +37,7 @@ namespace MoneyBack.Orm
             InitializeTables(sqliteConnection);
         }
 
-        private void InitializeTables(SQLiteAsyncConnection sqliteConnection)
+        private void InitializeTables(SQLiteConnection sqliteConnection)
         {
             Events = new Repository<Event>(sqliteConnection);
             People = new Repository<Person>(sqliteConnection);
@@ -45,15 +45,10 @@ namespace MoneyBack.Orm
         }
 
 
-        private SQLiteAsyncConnection GetAndroidDbConnection(string dbFilePath)
+        private SQLiteConnection GetAndroidDbConnection(string dbFilePath)
         {
-            var connectionFactory = new Func<SQLiteConnectionWithLock>(() =>
-                new SQLiteConnectionWithLock(new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid(),
-                    new SQLiteConnectionString(dbFilePath, true)));
+            return new SQLiteConnection(new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid(), dbFilePath);
 
-            var newDb = new SQLiteAsyncConnection(connectionFactory);
-
-            return newDb;
         }
 
 

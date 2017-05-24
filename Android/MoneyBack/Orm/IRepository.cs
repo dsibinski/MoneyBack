@@ -7,14 +7,17 @@ namespace MoneyBack.Orm
 {
     public interface IRepository<T> where T : class, new()
     {
-        Task<IList<T>> GetAll();
-        Task<T> Get(int id);
-        Task<IList<T>> Get(Expression<Func<T, bool>> filter);
+        IList<T> GetAll();
+        IList<T> GetAllWithChildren();
+        T Get(int id);
+        T GetWithChildren(int id);
+        IList<T> Get(Expression<Func<T, bool>> filter);
 
-        Task<int> Insert(T entity);
-        Task InsertWithChildren(T entity);
-        Task Update(T entity);
-        Task<int> Delete(T entity);
+        int Insert(T entity);
+        void InsertWithChildren(T entity);
+        void Update(T entity);
+        void UpdateWithChildren(T entity);
+        int Delete(T entity);
 
     }
 }
