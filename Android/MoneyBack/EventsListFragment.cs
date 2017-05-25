@@ -33,9 +33,9 @@ namespace MoneyBack
             InitializeEventsList();
         }
 
-        protected async void InitializeEventsList()
+        protected void InitializeEventsList()
         {
-            _eventsList = await GetEventsAsync();
+            _eventsList = GetEvents();
 
             this.ListAdapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleListItem1,
                 _eventsList.ConvertAll(p => p.ToString()));
@@ -43,7 +43,7 @@ namespace MoneyBack
         }
 
 
-        private async Task<List<Event>> GetEventsAsync()
+        private List<Event> GetEvents()
         {
 
             var events = _dbContext.Events.GetAll();

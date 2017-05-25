@@ -11,6 +11,10 @@ namespace MoneyBack
     [Activity(Label = "@string/ApplicationName", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
+        private int _peopleTabPosition { get; set; }
+
+        private int _eventsTabPosition { get; set; }
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -42,10 +46,11 @@ namespace MoneyBack
         {
             this.ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
 
-            AddTab(GetString(Resource.String.peopleTabTitle), new PeopleListFragment());
+            _peopleTabPosition = AddTab(GetString(Resource.String.peopleTabTitle), new PeopleListFragment());
+            _eventsTabPosition = AddTab(GetString(Resource.String.eventsTabTitle), new EventsListFragment());
         }
 
-        void AddTab(string tabText, Fragment view)
+        int AddTab(string tabText, Fragment view)
         {
             var tab = this.ActionBar.NewTab();
             tab.SetText(tabText);
@@ -62,6 +67,8 @@ namespace MoneyBack
             };
 
             this.ActionBar.AddTab(tab);
+
+            return tab.Position;
         }
 
         protected override void OnStart()
@@ -93,7 +100,18 @@ namespace MoneyBack
 
         private void OpenAddingNewPerson()
         {
-            var intent = new Intent(this, typeof(PeopleActivity));
+            var selectedTabPosition = this.ActionBar.SelectedTab.Position;
+
+            if (selectedTabPosition == _peopleTabPosition)
+                OpenActivityIntent<PersonDetailsActivity>();
+            else if (selectedTabPosition == _eventsTabPosition)
+                OpenActivityIntent<EventDetailsActivity>();
+
+        }
+
+        private void OpenActivityIntent<T>() where T : Activity
+        {
+            var intent = new Intent(this, typeof(T));
             StartActivity(intent);
         }
     }

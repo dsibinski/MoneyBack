@@ -32,9 +32,9 @@ namespace MoneyBack
             InitializePeopleList();
         }
 
-        protected async void InitializePeopleList()
+        protected void InitializePeopleList()
         {
-            _peopleList = await GetPeopleAsync();
+            _peopleList = GetPeople();
 
             this.ListAdapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleListItem1, _peopleList.ConvertAll(p => p.ToString()));
 
@@ -42,7 +42,7 @@ namespace MoneyBack
         }
 
 
-        private async Task<List<Person>> GetPeopleAsync()
+        private List<Person> GetPeople()
         {
             var people = _dbContext.People.GetAll();
 

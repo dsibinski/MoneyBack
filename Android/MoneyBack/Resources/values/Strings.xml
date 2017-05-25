@@ -12,4 +12,8 @@
     <string name="menuAddTitle">Add</string>
     <string name="peopleTabTitle">People</string>
     <string name="titleEmail">Email</string>
+    <string name="eventsTabTitle">Events</string>
+    <string name="titleEventPlace">Place</string>
+    <string name="titleEventDate">Date</string>
+    <string name="btnSaveEvent">Save event</string>
 </resources>

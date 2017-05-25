@@ -97,6 +97,7 @@
     <Compile Include="Entities\Event.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\PersonEvent.cs" />
+    <Compile Include="EventDetailsActivity.cs" />
     <Compile Include="EventsListFragment.cs" />
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Helpers\JavaIoHelper.cs" />
@@ -104,16 +105,17 @@
     <Compile Include="Orm\DatabaseContext.cs" />
     <Compile Include="Orm\IRepository.cs" />
     <Compile Include="Orm\Repository.cs" />
-    <Compile Include="PeopleActivity.cs" />
+    <Compile Include="PersonDetailsActivity.cs" />
     <Compile Include="PeopleListFragment.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
     <None Include="packages.config" />
-    <AndroidResource Include="Resources\layout\People.axml">
+    <AndroidResource Include="Resources\layout\PersonDetails.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\EventDetails.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="@string/titleName"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/eventTitleName" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/inputEventName"
+        android:fadingEdge="none" />
+    <TextView
+        android:text="@string/titleEventDate"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleEventDate" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/inputEventDate"
+        android:inputType="datetime" />
+    <TextView
+        android:text="@string/titleEventPlace"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleEventPlace" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/inputEventPlace"
+        android:inputType="phone" />
+    <Button
+        android:text="@string/btnSaveEvent"
+        android:layout_width="match_parent"
+        android:layout_height="84.0dp"
+        android:id="@+id/btnSaveEvent" />
+</LinearLayout>

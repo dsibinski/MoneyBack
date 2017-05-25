@@ -17,8 +17,8 @@ using SQLiteNetExtensions.Extensions;
 
 namespace MoneyBack
 {
-    [Activity(Label = "People")]
-    public class PeopleActivity : Activity
+    [Activity(Label = "Person")]
+    public class PersonDetailsActivity : Activity
     {
         private Button _btnSavePerson;
 
@@ -34,7 +34,7 @@ namespace MoneyBack
         {
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.People);
+            SetContentView(Resource.Layout.PersonDetails);
 
             InitializeUserControls();
         }
@@ -56,7 +56,7 @@ namespace MoneyBack
             
         }
 
-        private async void _btnSavePerson_Click(object sender, EventArgs e)
+        private void _btnSavePerson_Click(object sender, EventArgs e)
         {
             try
             {
