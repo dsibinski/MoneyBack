@@ -20,6 +20,8 @@ namespace MoneyBack
     [Activity(Label = "Person")]
     public class PersonDetailsActivity : Activity
     {
+        private readonly DatabaseContext _dbContext = new DatabaseContext();
+
         private Button _btnSavePerson;
 
         private EditText _inputName;
@@ -27,7 +29,7 @@ namespace MoneyBack
         private EditText _inputPhoneNumber;
         private EditText _inputEmail;
 
-        private readonly DatabaseContext _dbContext = new DatabaseContext();
+        
 
 
         protected override void OnCreate(Bundle savedInstanceState)

@@ -94,6 +94,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatePickerFragment.cs" />
     <Compile Include="Entities\Event.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\PersonEvent.cs" />

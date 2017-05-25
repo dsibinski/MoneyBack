@@ -20,11 +20,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/titleEventDate" />
-    <EditText
+    <Button
+        android:text="@string/titleSelectEventDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/inputEventDate"
-        android:inputType="datetime" />
+        android:id="@+id/btnSelectEventDate" />
     <TextView
         android:text="@string/titleEventPlace"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -35,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/inputEventPlace"
-        android:inputType="phone" />
+        android:inputType="text" />
     <Button
         android:text="@string/btnSaveEvent"
         android:layout_width="match_parent"

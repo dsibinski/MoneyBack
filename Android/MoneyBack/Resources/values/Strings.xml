@@ -16,4 +16,5 @@
     <string name="titleEventPlace">Place</string>
     <string name="titleEventDate">Date</string>
     <string name="btnSaveEvent">Save event</string>
+    <string name="titleSelectEventDate">Select event date</string>
 </resources>

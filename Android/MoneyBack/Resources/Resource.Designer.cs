@@ -102,14 +102,14 @@ namespace MoneyBack
 			// aapt resource value: 0x7f050011
 			public const int btnSavePerson = 2131034129;
 			
+			// aapt resource value: 0x7f050004
+			public const int btnSelectEventDate = 2131034116;
+			
 			// aapt resource value: 0x7f050001
 			public const int eventTitleName = 2131034113;
 			
 			// aapt resource value: 0x7f050010
 			public const int inputEmail = 2131034128;
-			
-			// aapt resource value: 0x7f050004
-			public const int inputEventDate = 2131034116;
 			
 			// aapt resource value: 0x7f050002
 			public const int inputEventName = 2131034114;
@@ -254,6 +254,9 @@ namespace MoneyBack
 			
 			// aapt resource value: 0x7f060006
 			public const int titlePhoneNumber = 2131099654;
+			
+			// aapt resource value: 0x7f060011
+			public const int titleSelectEventDate = 2131099665;
 			
 			static String()
 			{
