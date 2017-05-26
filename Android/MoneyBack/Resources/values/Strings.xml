@@ -18,4 +18,6 @@
     <string name="btnSaveEvent">Save event</string>
     <string name="titleSelectEventDate">Select event date</string>
     <string name="titleEventName">Event name</string>
+    <string name="Edit">Edit</string>
+    <string name="Delete">Delete</string>
 </resources>

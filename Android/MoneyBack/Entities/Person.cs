@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using MoneyBack.Orm;
 using SQLite.Net;
 using SQLite.Net.Async;
 using SQLite.Net.Attributes;
@@ -11,7 +12,7 @@ namespace MoneyBack.Entities
 {
     [Serializable]
     [Table("People")]
-    public class Person
+    public class Person : IEntity
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }

@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using MoneyBack.Orm;
 using SQLite.Net;
 using SQLite.Net.Async;
 using SQLite.Net.Attributes;
@@ -19,7 +20,7 @@ using SQLiteNetExtensionsAsync.Extensions;
 namespace MoneyBack.Entities
 {
     [Table("Events")]
-    public class Event
+    public class Event : IEntity
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }

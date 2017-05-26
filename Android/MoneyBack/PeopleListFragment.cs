@@ -50,6 +50,27 @@ namespace MoneyBack
         private void InitializeUserControlsEvents()
         {
             this.ListView.ItemClick += ListView_ItemClick;
+            this.ListView.ItemLongClick += ListView_ItemLongClick;
+        }
+
+        private void ListView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
+        {
+            var menu = new PopupMenu(Application.Context, (View)sender);
+            menu.Inflate(Resource.Menu.popupmenu);
+            menu.MenuItemClick += (s, a) =>
+            {
+                switch (a.Item.ItemId)
+                {
+                    case Resource.Id.pm_edit:
+                        Edit(e.Position);
+                        break;
+                    case Resource.Id.pm_delete:
+                        Delete(e.Position);
+                        InitializePeopleList();
+                        break;
+                }
+            };
+            menu.Show();
         }
 
         public override void OnPause()
@@ -61,6 +82,7 @@ namespace MoneyBack
         private void DetatchUserControlsEvents()
         {
             this.ListView.ItemClick -= ListView_ItemClick;
+            this.ListView.ItemLongClick -= ListView_ItemLongClick;
         }
 
         private List<Person> GetPeople()
@@ -72,12 +94,24 @@ namespace MoneyBack
 
         private void ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            var person = _peopleList[e.Position];
+            Edit(e.Position);
+        }
+
+        private void Edit(int listPosition)
+        {
+            var person = _peopleList[listPosition];
 
             var intent = new Intent(Application.Context, typeof(PersonDetailsActivity));
             intent.PutExtra("dataSourceId", person.Id);
 
             StartActivity(intent);
+        }
+
+        private void Delete(int listPosition)
+        {
+            var person = _peopleList[listPosition];
+
+            _dbContext.People.Delete(person);
         }
     }
 }

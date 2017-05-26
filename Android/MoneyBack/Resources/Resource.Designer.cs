@@ -132,6 +132,12 @@ namespace MoneyBack
 			// aapt resource value: 0x7f050012
 			public const int menuAdd = 2131034130;
 			
+			// aapt resource value: 0x7f050014
+			public const int pm_delete = 2131034132;
+			
+			// aapt resource value: 0x7f050013
+			public const int pm_edit = 2131034131;
+			
 			// aapt resource value: 0x7f050008
 			public const int tabFragmentsContainer = 2131034120;
 			
@@ -191,6 +197,9 @@ namespace MoneyBack
 			// aapt resource value: 0x7f070000
 			public const int ActionBarMenu = 2131165184;
 			
+			// aapt resource value: 0x7f070001
+			public const int popupmenu = 2131165185;
+			
 			static Menu()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -206,6 +215,12 @@ namespace MoneyBack
 			
 			// aapt resource value: 0x7f060001
 			public const int ApplicationName = 2131099649;
+			
+			// aapt resource value: 0x7f060014
+			public const int Delete = 2131099668;
+			
+			// aapt resource value: 0x7f060013
+			public const int Edit = 2131099667;
 			
 			// aapt resource value: 0x7f060000
 			public const int Hello = 2131099648;

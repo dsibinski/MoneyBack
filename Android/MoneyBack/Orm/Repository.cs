@@ -11,7 +11,7 @@ using SQLiteNetExtensions.Extensions;
 
 namespace MoneyBack.Orm
 {
-    public class Repository<T> : IRepository<T> where T : class, new()
+    public class Repository<T> : IRepository<T> where T : class, IEntity, new()
     {
         private SQLiteConnection dbConnection = null;
 
@@ -69,7 +69,7 @@ namespace MoneyBack.Orm
         }
         public int Delete(T entity)
         {
-            return dbConnection.Delete<T>(entity);
+            return dbConnection.Delete<T>(entity.Id);
         }
 
         

@@ -18,4 +18,6 @@
     <string name="btnSaveEvent">Zapisz wydarzenie</string>
     <string name="titleSelectEventDate">Wybierz datę wydarzenia</string>
     <string name="titleEventName">Nazwa wydarzenia</string>
+    <string name="Edit">Edytuj</string>
+    <string name="Delete">Usuń</string>
 </resources>

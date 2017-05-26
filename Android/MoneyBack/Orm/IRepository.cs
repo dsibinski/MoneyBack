@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MoneyBack.Orm
 {
-    public interface IRepository<T> where T : class, new()
+    public interface IRepository<T> where T : class, IEntity, new()
     {
         IList<T> GetAll();
         IList<T> GetAllWithChildren();

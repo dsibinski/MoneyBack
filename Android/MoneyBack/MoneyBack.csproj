@@ -104,6 +104,7 @@
     <Compile Include="Helpers\JavaIoHelper.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Orm\DatabaseContext.cs" />
+    <Compile Include="Orm\IEntity.cs" />
     <Compile Include="Orm\IRepository.cs" />
     <Compile Include="Orm\Repository.cs" />
     <Compile Include="PersonDetailsActivity.cs" />
@@ -117,6 +118,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\EventDetails.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\menu\popupmenu.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
