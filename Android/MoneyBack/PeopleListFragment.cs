@@ -35,10 +35,7 @@ namespace MoneyBack
         protected void InitializePeopleList()
         {
             _peopleList = GetPeople();
-
             this.ListAdapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleListItem1, _peopleList.ConvertAll(p => p.ToString()));
-
-            
         }
 
         public override void OnResume()
