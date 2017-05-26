@@ -12,9 +12,10 @@
     <string name="menuAddTitle">Dodaj</string>
     <string name="peopleTabTitle">Osoby</string>
     <string name="titleEmail">Email</string>
-    <string name="eventsTabTitle">Wydarzenie</string>
+    <string name="eventsTabTitle">Wydarzenia</string>
     <string name="titleEventPlace">Miejsce</string>
     <string name="titleEventDate">Data</string>
     <string name="btnSaveEvent">Zapisz wydarzenie</string>
     <string name="titleSelectEventDate">Wybierz datę wydarzenia</string>
+    <string name="titleEventName">Nazwa wydarzenia</string>
 </resources>

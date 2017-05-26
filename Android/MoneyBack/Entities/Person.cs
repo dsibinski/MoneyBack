@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using SQLite.Net;
 using SQLite.Net.Async;
@@ -8,6 +9,7 @@ using SQLiteNetExtensionsAsync.Extensions;
 
 namespace MoneyBack.Entities
 {
+    [Serializable]
     [Table("People")]
     public class Person
     {

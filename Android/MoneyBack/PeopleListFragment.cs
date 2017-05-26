@@ -38,9 +38,30 @@ namespace MoneyBack
 
             this.ListAdapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleListItem1, _peopleList.ConvertAll(p => p.ToString()));
 
+            
+        }
+
+        public override void OnResume()
+        {
+            base.OnResume();
             InitializeUserControlsEvents();
         }
 
+        private void InitializeUserControlsEvents()
+        {
+            this.ListView.ItemClick += ListView_ItemClick;
+        }
+
+        public override void OnPause()
+        {
+            base.OnPause();
+            DetatchUserControlsEvents();
+        }
+
+        private void DetatchUserControlsEvents()
+        {
+            this.ListView.ItemClick -= ListView_ItemClick;
+        }
 
         private List<Person> GetPeople()
         {
@@ -49,18 +70,12 @@ namespace MoneyBack
             return people.ToList();
         }
 
-        private void InitializeUserControlsEvents()
-        {
-            this.ListView.ItemClick += ListView_ItemClick;
-        }
-
         private void ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             var person = _peopleList[e.Position];
 
-            var uri = Android.Net.Uri.Parse("tel:" + person.PhoneNumber);
-
-            var intent = new Intent(Intent.ActionDial, uri);
+            var intent = new Intent(Application.Context, typeof(PersonDetailsActivity));
+            intent.PutExtra("dataSourceId", person.Id);
 
             StartActivity(intent);
         }

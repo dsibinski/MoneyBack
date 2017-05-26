@@ -1,7 +1,9 @@
-﻿using SQLiteNetExtensions.Attributes;
+﻿using System;
+using SQLiteNetExtensions.Attributes;
 
 namespace MoneyBack.Entities
 {
+    [Serializable]
     public class PersonEvent
     {
         [ForeignKey(typeof(Person))]

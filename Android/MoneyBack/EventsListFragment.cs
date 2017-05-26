@@ -20,12 +20,6 @@ namespace MoneyBack
 
         private readonly DatabaseContext _dbContext = new DatabaseContext();
 
-        public override void OnActivityCreated(Bundle savedInstanceState)
-        {
-            base.OnActivityCreated(savedInstanceState);
-
-            InitializeEventsList();
-        }
 
         public override void OnStart()
         {
@@ -39,9 +33,39 @@ namespace MoneyBack
 
             this.ListAdapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleListItem1,
                 _eventsList.ConvertAll(p => p.ToString()));
-
         }
 
+        public override void OnResume()
+        {
+            base.OnResume();
+            InitializeUserControlsEvents();
+        }
+
+        public override void OnPause()
+        {
+            base.OnPause();
+            DetatchUserControlsEvents();
+        }
+
+        private void InitializeUserControlsEvents()
+        {
+            this.ListView.ItemClick += ListView_ItemClick;
+        }
+
+        private void DetatchUserControlsEvents()
+        {
+            this.ListView.ItemClick -= ListView_ItemClick;
+        }
+
+        private void ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var @event = _eventsList[e.Position];
+
+            var intent = new Intent(Application.Context, typeof(EventDetailsActivity));
+            intent.PutExtra("dataSourceId", @event.Id);
+
+            StartActivity(intent);
+        }
 
         private List<Event> GetEvents()
         {

@@ -240,6 +240,9 @@ namespace MoneyBack
 			// aapt resource value: 0x7f06000f
 			public const int titleEventDate = 2131099663;
 			
+			// aapt resource value: 0x7f060012
+			public const int titleEventName = 2131099666;
+			
 			// aapt resource value: 0x7f06000e
 			public const int titleEventPlace = 2131099662;
 			

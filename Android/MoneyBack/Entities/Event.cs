@@ -33,7 +33,7 @@ namespace MoneyBack.Entities
 
         public override string ToString()
         {
-            return $"Event Name: {Name}\nDate: {Date}\nPlace: {Place}";
+            return $"Event Name: {Name}\nDate: {Date.ToShortDateString()}\nPlace: {Place}";
         }
     }
 }

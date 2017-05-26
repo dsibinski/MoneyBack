@@ -19,6 +19,9 @@ namespace MoneyBack
     {
         private readonly DatabaseContext _dbContext = new DatabaseContext();
 
+        private Event CurrentEvent { get; set; }
+        private bool IsAddMode { get; set; }
+
         private Button _btnSaveEvent;
         private Button _btnSelectDate;
 
@@ -34,6 +37,31 @@ namespace MoneyBack
             SetContentView(Resource.Layout.EventDetails);
 
             InitializeUserControls();
+
+            InitDataSource();
+        }
+
+        private void InitDataSource()
+        {
+            var passedDataSourceId = Intent.Extras?.GetInt("dataSourceId");
+
+            if (passedDataSourceId.HasValue && passedDataSourceId.Value > 0)
+            {
+                var id = passedDataSourceId.Value;
+                CurrentEvent = _dbContext.Events.GetWithChildren(id);
+                if (CurrentEvent == null)
+                    throw new ArgumentException($"Event with ID {id} was not found!");
+
+                _inputName.Text = CurrentEvent.Name;
+                _inputPlace.Text = CurrentEvent.Place;
+                _selectedDate = CurrentEvent.Date;
+                _btnSelectDate.Text = _selectedDate.ToLongDateString();
+            }
+            else
+            {
+                CurrentEvent = new Event();
+                IsAddMode = true;
+            }
         }
 
         protected override void OnResume()
@@ -42,10 +70,23 @@ namespace MoneyBack
             InitializeUserControlsEvents();
         }
 
+
+        protected override void OnPause()
+        {
+            base.OnPause();
+            DetatchUserControlsEvents();
+        }
+
         private void InitializeUserControlsEvents()
         {
             _btnSaveEvent.Click += _btnSaveEvent_Click;
             _btnSelectDate.Click += _btnSelectDate_Click;
+        }
+
+        private void DetatchUserControlsEvents()
+        {
+            _btnSaveEvent.Click -= _btnSaveEvent_Click;
+            _btnSelectDate.Click -= _btnSelectDate_Click;
         }
 
         private void _btnSelectDate_Click(object sender, EventArgs e)
@@ -73,27 +114,27 @@ namespace MoneyBack
             var name = _inputName.Text;
             var place = _inputPlace.Text;
 
-            var @event = new Event
-            {
-                Name = name,
-                Place = place,
-                Date = _selectedDate
-            };
+            CurrentEvent.Name = name;
+            CurrentEvent.Place = place;
+            CurrentEvent.Date = _selectedDate;
 
-            InsertEvent(@event);
+            Save();
 
-            if (@event.Id == 0)
+            if (CurrentEvent.Id == 0)
                 Toast.MakeText(this, $"Event: Name={name} wasn't properly saved!", ToastLength.Long).Show();
             else
-                Toast.MakeText(this, $"Event saved, details: {@event}", ToastLength.Long).Show();
+                Toast.MakeText(this, $"Event saved, details: {CurrentEvent}", ToastLength.Long).Show();
 
             this.Finish();
 
         }
 
-        private void InsertEvent(Event @event)
+        private void Save()
         {
-            _dbContext.Events.Insert(@event);
+            if(IsAddMode)
+                _dbContext.Events.Insert(CurrentEvent);
+            else
+                _dbContext.Events.UpdateWithChildren(CurrentEvent);
         }
 
         private void ValidateMandatoryFields()
