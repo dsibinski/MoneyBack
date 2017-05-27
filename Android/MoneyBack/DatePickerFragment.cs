@@ -13,35 +13,30 @@ using Android.Widget;
 
 namespace MoneyBack
 {
-    public class DatePickerFragment : DialogFragment,
-        DatePickerDialog.IOnDateSetListener
+    public class DatePickerFragment : DialogFragment, DatePickerDialog.IOnDateSetListener
     {
         public static readonly string TAG = "X:" + typeof(DatePickerFragment).Name.ToUpper();
 
         Action<DateTime> _dateSelectedHandler = delegate { };
 
-        public static DatePickerFragment NewInstance(Action<DateTime> onDateSelected)
+        public DatePickerFragment(Action<DateTime> onDateSelected)
         {
-            DatePickerFragment frag = new DatePickerFragment();
-            frag._dateSelectedHandler = onDateSelected;
-            return frag;
+            _dateSelectedHandler = onDateSelected;
         }
 
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
         {
-            DateTime currently = DateTime.Now;
-            DatePickerDialog dialog = new DatePickerDialog(Activity,
+            DateTime now = DateTime.Now;
+            return new DatePickerDialog(Activity, 
                 this,
-                currently.Year,
-                currently.Month,
-                currently.Day);
-            return dialog;
+                now.Year,
+                now.Month,
+                now.Day);
         }
 
         public void OnDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
         {
             DateTime selectedDate = new DateTime(year, monthOfYear + 1, dayOfMonth);
-            Log.Debug(TAG, selectedDate.ToLongDateString());
             _dateSelectedHandler(selectedDate);
         }
     }

@@ -91,12 +91,12 @@ namespace MoneyBack
 
         private void _btnSelectDate_Click(object sender, EventArgs e)
         {
-            DatePickerFragment frag = DatePickerFragment.NewInstance(delegate (DateTime time)
-            {
-                _selectedDate = time;
-                _btnSelectDate.Text = _selectedDate.ToLongDateString();
-            });
-            frag.Show(FragmentManager, DatePickerFragment.TAG);
+            new DatePickerFragment(delegate(DateTime time)
+                {
+                    _selectedDate = time;
+                    _btnSelectDate.Text = _selectedDate.ToLongDateString();
+                })
+                .Show(FragmentManager, DatePickerFragment.TAG);
         }
 
         private void _btnSaveEvent_Click(object sender, EventArgs e)
