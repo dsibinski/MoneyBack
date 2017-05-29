@@ -97,6 +97,22 @@ namespace MoneyBack
             base.OnDestroy();
         }
 
+        protected override void OnSaveInstanceState(Bundle outState)
+        {
+            var tabSelectedPosition = this.ActionBar.SelectedNavigationIndex;
+            outState.PutInt("selectedTabPosition", tabSelectedPosition);
+
+            base.OnSaveInstanceState(outState);
+        }
+
+        protected override void OnRestoreInstanceState(Bundle savedInstanceState)
+        {
+            base.OnRestoreInstanceState(savedInstanceState);
+
+            var previouslySelectedTabPosition = savedInstanceState.GetInt("selectedTabPosition", 0);
+            this.ActionBar.SetSelectedNavigationItem(previouslySelectedTabPosition);
+        }
+
 
         private void OpenAddingNewPerson()
         {
