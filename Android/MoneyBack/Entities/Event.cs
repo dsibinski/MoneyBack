@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using MoneyBack.Orm;
+using Realms;
 using SQLite.Net;
 using SQLite.Net.Async;
 using SQLite.Net.Attributes;
@@ -19,22 +20,19 @@ using SQLiteNetExtensionsAsync.Extensions;
 
 namespace MoneyBack.Entities
 {
-    [Table("Events")]
-    public class Event : IEntity
+    public class Event : RealmObject, IEntity
     {
-        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
         public string Name { get; set; }
-        public DateTime Date { get; set; }
+        public DateTimeOffset Date { get; set; }
         public string Place { get; set; }
 
-        [ManyToMany(typeof(PersonEvent))]
-        public List<Person> Participants { get; set; }
+        public IList<Person> Participants { get; }
 
         public override string ToString()
         {
-            return $"Event Name: {Name}\nDate: {Date.ToShortDateString()}\nPlace: {Place}";
+            return $"Event Name: {Name}\nDate: {Date.ToString("d")}\nPlace: {Place}";
         }
     }
 }

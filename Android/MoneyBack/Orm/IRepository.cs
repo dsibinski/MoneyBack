@@ -13,7 +13,7 @@ namespace MoneyBack.Orm
         T GetWithChildren(int id);
         IList<T> Get(Expression<Func<T, bool>> filter);
 
-        int Insert(T entity);
+        void Insert(T entity);
         void InsertWithChildren(T entity);
         void Update(T entity);
         void UpdateWithChildren(T entity);

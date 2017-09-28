@@ -21,7 +21,6 @@ namespace MoneyBack.Orm
     {
         public Repository<Event> Events { get; set; }
         public Repository<Person> People { get; set; }
-        public Repository<PersonEvent> PersonEvents { get; set; }
 
         /// <summary>
         /// Creates new DatabaseContext.
@@ -41,7 +40,6 @@ namespace MoneyBack.Orm
         {
             Events = new Repository<Event>(sqliteConnection);
             People = new Repository<Person>(sqliteConnection);
-            PersonEvents = new Repository<PersonEvent>(sqliteConnection);
         }
 
 

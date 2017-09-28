@@ -48,9 +48,9 @@ namespace MoneyBack.Orm
             return dbConnection.Table<T>().Where(filter).ToList();
         }
 
-        public int Insert(T entity)
+        public void Insert(T entity)
         {
-            return dbConnection.Insert(entity);
+            dbConnection.Insert(entity);
         }
 
         public void InsertWithChildren(T entity)

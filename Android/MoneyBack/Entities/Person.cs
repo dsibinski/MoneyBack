@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using MoneyBack.Orm;
+using Realms;
 using SQLite.Net;
 using SQLite.Net.Async;
 using SQLite.Net.Attributes;
@@ -11,10 +12,8 @@ using SQLiteNetExtensionsAsync.Extensions;
 namespace MoneyBack.Entities
 {
     [Serializable]
-    [Table("People")]
-    public class Person : IEntity
+    public class Person : RealmObject, IEntity
     {
-        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -25,8 +24,7 @@ namespace MoneyBack.Entities
 
         public string Email { get; set; }
 
-        [ManyToMany(typeof(PersonEvent))]
-        public List<Event> Events { get; set; }
+        public IList<Event> Events { get;  }
 
         public override string ToString()
         {

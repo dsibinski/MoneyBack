@@ -28,7 +28,7 @@ namespace MoneyBack
         private EditText _inputName;
         private EditText _inputPlace;
 
-        private DateTime _selectedDate;
+        private DateTimeOffset _selectedDate;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -55,7 +55,7 @@ namespace MoneyBack
                 _inputName.Text = CurrentEvent.Name;
                 _inputPlace.Text = CurrentEvent.Place;
                 _selectedDate = CurrentEvent.Date;
-                _btnSelectDate.Text = _selectedDate.ToLongDateString();
+                _btnSelectDate.Text = _selectedDate.ToString("d");
             }
             else
             {
@@ -94,7 +94,7 @@ namespace MoneyBack
             new DatePickerFragment(delegate(DateTime time)
                 {
                     _selectedDate = time;
-                    _btnSelectDate.Text = _selectedDate.ToLongDateString();
+                    _btnSelectDate.Text = _selectedDate.ToString("d");
                 })
                 .Show(FragmentManager, DatePickerFragment.TAG);
         }
