@@ -78,14 +78,14 @@ namespace MoneyBack.Android.Tests
                 PhoneNumber = "123456789"
             };
 
-            
+
             // when
             var v1 = _dbContext.People.Insert(person1);
             var v2 = _dbContext.Events.Insert(event1);
 
-            person1.Events = new List<Event> {event1};
+            person1.Events = new List<Event> { event1 };
             _dbContext.People.UpdateWithChildren(person1);
-            
+
             var personStored = _dbContext.People.GetWithChildren(person1.Id);
             var eventStored = _dbContext.Events.GetWithChildren(personStored.Events[0].Id);
 
@@ -93,6 +93,55 @@ namespace MoneyBack.Android.Tests
             Assert.Greater(personStored.Id, 1);
             Assert.AreEqual(1, personStored.Events.Count);
             Assert.AreEqual(1, eventStored.Participants.Count);
+        }
+
+        [Test]
+        public void two_persons_are_properly_saved_with_the_same_event()
+        {
+            // given
+            var event1 = new Event
+            {
+                Name = "Volleyball",
+                Date = new DateTime(2017, 06, 18),
+                Place = "Sports hall"
+            };
+
+            var person1 = new Person
+            {
+                Name = "A",
+                LastName = "B",
+                PhoneNumber = "123456789"
+            };
+
+            var person2 = new Person
+            {
+                Name = "B",
+                LastName = "C",
+                PhoneNumber = "333456789"
+            };
+
+
+            // when
+            var v1 = _dbContext.People.Insert(person1);
+            var v12 = _dbContext.People.Insert(person2);
+            var v2 = _dbContext.Events.Insert(event1);
+
+            person1.Events = new List<Event> { event1 }; // assign two different people to the same event
+            person2.Events = new List<Event> { event1 };
+            _dbContext.People.UpdateWithChildren(person1);
+            _dbContext.People.UpdateWithChildren(person2);
+
+            var personStored = _dbContext.People.GetWithChildren(person1.Id);
+            var person2Stored = _dbContext.People.GetWithChildren(person2.Id);
+            var eventStored = _dbContext.Events.GetWithChildren(personStored.Events[0].Id);
+
+            // then
+            Assert.Greater(personStored.Id, 1);
+            Assert.Greater(person2Stored.Id, 1);
+            Assert.AreEqual(1, personStored.Events.Count);
+            Assert.AreEqual(1, person2Stored.Events.Count);
+            Assert.AreEqual(personStored.Events[0].Id, person2Stored.Events[0].Id);
+            Assert.AreEqual(2, eventStored.Participants.Count);
         }
     }
 }
