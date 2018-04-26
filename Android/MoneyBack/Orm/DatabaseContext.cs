@@ -12,7 +12,7 @@ using Android.Widget;
 using Java.IO;
 using MoneyBack.Entities;
 using MoneyBack.Helpers;
-using SQLite.Net;
+using SQLite;
 using SQLite.Net.Async;
 
 namespace MoneyBack.Orm
@@ -47,7 +47,7 @@ namespace MoneyBack.Orm
 
         private SQLiteConnection GetAndroidDbConnection(string dbFilePath)
         {
-            return new SQLiteConnection(new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid(), dbFilePath);
+            return new SQLiteConnection(dbFilePath);
 
         }
 
