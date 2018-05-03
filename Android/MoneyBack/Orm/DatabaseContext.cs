@@ -1,19 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Java.IO;
-using MoneyBack.Entities;
+﻿using MoneyBack.Entities;
 using MoneyBack.Helpers;
 using SQLite;
-using SQLite.Net.Async;
 
 namespace MoneyBack.Orm
 {
@@ -48,7 +35,6 @@ namespace MoneyBack.Orm
         private SQLiteConnection GetAndroidDbConnection(string dbFilePath)
         {
             return new SQLiteConnection(dbFilePath);
-
         }
 
 

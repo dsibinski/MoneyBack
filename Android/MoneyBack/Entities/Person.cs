@@ -1,12 +1,8 @@
 using System;
 using System.Collections.Generic;
 using MoneyBack.Orm;
-using SQLite.Net;
-using SQLite.Net.Async;
-using SQLite.Net.Attributes;
-using SQLite.Net.Interop;
+using SQLite;
 using SQLiteNetExtensions.Attributes;
-using SQLiteNetExtensionsAsync.Extensions;
 
 namespace MoneyBack.Entities
 {

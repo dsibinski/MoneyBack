@@ -2,11 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
-using MoneyBack.Helpers;
 using SQLite;
-using SQLite.Net.Async;
-using SQLite.Net.Platform.XamarinAndroid;
 using SQLiteNetExtensions.Extensions;
 
 namespace MoneyBack.Orm
