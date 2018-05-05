@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using MoneyBack.Entities;
 using MoneyBack.Orm;
+using SQLiteNetExtensions.Extensions;
 
 namespace MoneyBack
 {

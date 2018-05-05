@@ -1,18 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Android.App;
-using Android.Content;
 using Android.OS;
 using Android.Widget;
-using Java.IO;
-using Java.Security;
 using MoneyBack.Entities;
-using MoneyBack.Helpers;
 using MoneyBack.Orm;
-using SQLite.Net;
-using SQLite.Net.Async;
-using SQLite.Net.Platform.XamarinAndroid;
 using SQLiteNetExtensions.Extensions;
 
 namespace MoneyBack

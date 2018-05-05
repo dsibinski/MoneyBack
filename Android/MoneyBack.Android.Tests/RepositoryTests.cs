@@ -6,6 +6,7 @@ using MoneyBack.Entities;
 using MoneyBack.Helpers;
 using MoneyBack.Orm;
 using SQLite;
+using SQLiteNetExtensions.Extensions;
 
 
 namespace MoneyBack.Android.Tests

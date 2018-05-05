@@ -6,9 +6,9 @@ namespace MoneyBack.Orm
 {
     public class DatabaseContext
     {
-        public Repository<Event> Events { get; set; }
-        public Repository<Person> People { get; set; }
-        public Repository<PersonEvent> PersonEvents { get; set; }
+        public IRepository<Event> Events { get; set; }
+        public IRepository<Person> People { get; set; }
+        public IRepository<PersonEvent> PersonEvents { get; set; }
 
         /// <summary>
         /// Creates new DatabaseContext.
@@ -19,22 +19,14 @@ namespace MoneyBack.Orm
             if (removeDbFileFirst)
                 JavaIoHelper.RemoveJavaFileIfExists(Constants.DbFilePath);
 
-            var sqliteConnection = GetAndroidDbConnection(Constants.DbFilePath);
-
-            InitializeTables(sqliteConnection);
+            InitializeTables(Constants.DbFilePath);
         }
 
-        private void InitializeTables(SQLiteConnection sqliteConnection)
+        private void InitializeTables(string dbFilePath)
         {
-            Events = new Repository<Event>(sqliteConnection);
-            People = new Repository<Person>(sqliteConnection);
-            PersonEvents = new Repository<PersonEvent>(sqliteConnection);
-        }
-
-
-        private SQLiteConnection GetAndroidDbConnection(string dbFilePath)
-        {
-            return new SQLiteConnection(dbFilePath);
+            Events = new SqliteRepository<Event>(dbFilePath);
+            People = new SqliteRepository<Person>(dbFilePath);
+            PersonEvents = new SqliteRepository<PersonEvent>(dbFilePath);
         }
 
 

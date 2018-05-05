@@ -118,7 +118,7 @@
     <Compile Include="Orm\DatabaseContext.cs" />
     <Compile Include="Orm\IEntity.cs" />
     <Compile Include="Orm\IRepository.cs" />
-    <Compile Include="Orm\Repository.cs" />
+    <Compile Include="Orm\SqliteRepository.cs" />
     <Compile Include="PersonDetailsActivity.cs" />
     <Compile Include="PeopleListFragment.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
